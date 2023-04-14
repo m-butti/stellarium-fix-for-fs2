@@ -1,0 +1,18 @@
+# Make sure this file is formatted as ANSI #
+
+## Get Rectaszension ##
+:GR#
+## Get Declination ##
+:GD#
+
+## Set Go-To Rectascensions ##
+:Sr #
+## Set Go-To Declination ##
+:Sd-37ß55:00#
+
+## Move Selected (Go-To) ##
+:MS#
+
+
+## Stop Move ##
+:Q#

@@ -1,0 +1,12 @@
+Patched files are:
+
+plugins\TelescopeControl\src\Lx200\Lx200Command.cpp
+plugins\TelescopeControl\src\Lx200\Lx200Connection.cpp
+src\StelSplashScreen.cpp
+
+Copys of the patched files are located here in the folder "patched files"
+
+FS2 does not like the # prefixed to an instruction
+Also a movement stop when it's not moving gets stored and executed the next time a movement is initiated. Therefore we have to remove any prefix stop commands to a move instruction.
+
+Bonus: It can be confusing, when Stellarium starts to fullscreen. It can be turned off (fullscreen = false) in "Stellarium\data\default_cfg.ini"

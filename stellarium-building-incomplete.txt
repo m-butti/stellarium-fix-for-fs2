@@ -1,0 +1,15 @@
+$ Unpack ZIP to C:\Devel\stellarium and inside:
+$ md build
+$ cd build
+$ md msvc
+$ cd msvc
+
+cd C:\Devel\stellarium\build\msvc\
+
+cmake -DCMAKE_INSTALL_PREFIX=c:\stellarium-bin -DCMAKE_PREFIX_PATH=C:\Qt\5.12.6\msvc2017_64 -G "Visual Studio 15 2017" ../.. # -DCMAKE_BUILD_TYPE=Release
+cmake --build . --  /maxcpucount:2 /nologo
+
+
+
+
+cmake --build C:\Devel\stellarium\build\msvc --target stellarium-installer

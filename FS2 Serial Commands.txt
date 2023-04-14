@@ -1,0 +1,79 @@
+The degree symbol depicted as an * is actually an ß (ASCII: 223 Hex: DF)
+
+### General Telescope Information ###
+
+:GR#
+    Returns +HH:MM.T#
+        Gets the current Right Ascension.
+	A Mapug-Astronomy post indicated that for the 3.34L ROMS the format is  +HH:MM:SS# for RA
+	And the format for Declination is  sDD*MM'SS#.  Thus adding seconds and arc seconds.
+
+:GD#
+    Returns sDD*MM#
+        Gets the current declination.
+
+### Telescope Motion ###
+
+:Mn#
+:Ms#
+:Me#
+:Mw#
+    Returns Nothing
+        Starts motion in the specified direction at the current rate.
+
+:MS#
+    Returns 0, 1, or 2 (see description)
+        Slews telescope to current object coordinates. 0 is returned if the telescope can complete the slew,
+        1 is returned if the object is below the horizon, and 2 is returned if the object is below the 'higher'
+        limit. If 1 or 2 is returned, a string containing an appropriate message is also returned.
+
+:Qn#
+:Qs#
+:Qe#
+:Qw#
+    Returns Nothing
+        Stops motion in the specified direction. Also stops the telescope if a slew to object is in progress.
+
+:Q#
+    Returns Nothing
+        Stops a slew to an object.
+
+:RG#
+:RC#
+:RM#
+:RS#
+    Returns Nothing
+        Sets the motion rate to guide (RG), center (RC), find (RM), or slew (RS).
+
+### Library/Objects ###
+
+:Sr HH:MM.T#
+    Returns Ok
+        Sets object Right Ascension.
+
+:Sd sDD*MM#
+    Returns Ok
+        Sets object Declination.
+
+:CM#
+    Returns (see description)
+        Sync. Matches current telescope coordinates to the object coordinates and sends a string indicating which
+        object's coordinates were used.
+
+:U#
+    Returns Nothing
+        Toggles the long format ON or OFF.
+            When the long format is active, whenever a request to send or receive position data, the following format is used:
+	HH:MM:SS
+	Example: 05:47:45
+	Range: 00:00.0 to 23:59:59
+	Hours, minutes, and seconds.
+	sDD*MM:SS
+	Example: +45*59:45
+	Range: -90*00 to +90*00
+	Signed degrees, minutes, and seconds (the'*' represents ASCII 223 which appears on
+	the handbox as a degree symbol).
+	DDD*MM:SS
+	Example: 254*09:45
+	Range: 000*00 to 359*59:59
+	Unsigned degrees, minutes, and seconds.
